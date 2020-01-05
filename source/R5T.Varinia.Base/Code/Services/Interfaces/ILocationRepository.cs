@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using R5T.Corcyra;
 
@@ -7,14 +8,14 @@ namespace R5T.Varinia
 {
     public interface ILocationRepository
     {
-        LocationIdentity New();
-        LocationIdentity New(LngLat lngLat);
+        Task<LocationIdentity> New();
+        Task<LocationIdentity> New(LngLat lngLat);
 
-        bool Exists(LocationIdentity identity);
+        Task<bool> Exists(LocationIdentity identity);
 
-        void SetLngLat(LocationIdentity identity, LngLat lngLat);
-        LngLat GetLngLat(LocationIdentity identity);
+        Task SetLngLat(LocationIdentity identity, LngLat lngLat);
+        Task<LngLat> GetLngLat(LocationIdentity identity);
 
-        void Delete(LocationIdentity identity);
+        Task Delete(LocationIdentity identity);
     }
 }
